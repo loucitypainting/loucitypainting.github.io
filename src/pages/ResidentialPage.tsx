@@ -90,7 +90,7 @@ const ResidentialPage = () => {
       `}</style>
       <div className="min-h-screen relative residential-bg">
       {/* Background overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 z-0"></div>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0"></div>
       
       {/* Content wrapper */}
       <div className="relative z-10">

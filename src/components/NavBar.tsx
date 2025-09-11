@@ -26,7 +26,7 @@ const NavBar = () => {
               <img 
                 src="/logo.png" 
                 alt="Lou City Painting Logo" 
-                className="h-20 w-auto group-hover:scale-110 transition-transform duration-300"
+                className="h-24 w-auto group-hover:scale-110 transition-transform duration-300"
               />
             </Link>
           </div>

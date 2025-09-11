@@ -5,23 +5,24 @@ interface ServiceCardProps {
   title: string
   description: string
   features?: string[]
+  linkTo?: string
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, features }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, features, linkTo = "/contact" }) => {
   return (
-    <article className="group bg-white rounded-xl shadow-soft hover:shadow-medium transition-all duration-400 p-6 lg:p-8 h-full flex flex-col border border-gray-100 hover:border-primary-200 hover:-translate-y-1">
+    <article className="group bg-gradient-to-br from-white to-primary-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-400 p-8 h-full flex flex-col border border-primary-100 hover:border-primary-300 hover:-translate-y-2">
       <header className="flex items-center mb-6">
         <div className="w-14 h-14 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl flex items-center justify-center text-primary-600 mr-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
           {icon}
         </div>
         <div className="flex-grow">
-          <h3 className="text-xl lg:text-2xl font-bold text-gray-800 group-hover:text-primary-700 transition-colors duration-300 leading-tight">
+          <h3 className="text-xl lg:text-2xl font-bold text-secondary-800 group-hover:text-primary-700 transition-colors duration-300 leading-tight">
             {title}
           </h3>
         </div>
       </header>
       
-      <p className="text-gray-600 mb-6 flex-grow leading-relaxed text-base lg:text-lg">
+      <p className="text-secondary-600 mb-6 flex-grow leading-relaxed text-base lg:text-lg">
         {description}
       </p>
       
@@ -29,9 +30,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, fea
         <ul className="space-y-3 mb-8" role="list">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start" role="listitem">
-              <div className="w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+              <div className="w-5 h-5 bg-accent-100 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                 <svg 
-                  className="w-3 h-3 text-primary-600" 
+                  className="w-3 h-3 text-accent-600" 
                   fill="currentColor" 
                   viewBox="0 0 20 20"
                   aria-hidden="true"
@@ -47,7 +48,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, fea
       
       <footer className="mt-auto">
         <Link
-          to="/contact"
+          to={linkTo}
           className="group/link inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-all duration-300"
           aria-label={`Learn more about ${title} services`}
         >

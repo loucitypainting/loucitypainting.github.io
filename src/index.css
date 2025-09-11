@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+/* Paint brush stroke pattern */
+.paint-texture {
+  background-image: 
+    linear-gradient(45deg, transparent 40%, rgba(241, 106, 71, 0.1) 40%, rgba(241, 106, 71, 0.1) 60%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(138, 157, 138, 0.1) 40%, rgba(138, 157, 138, 0.1) 60%, transparent 60%);
+  background-size: 30px 30px;
+}
+
+/* Paint splatter effect */
+.paint-splatter::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 12px;
+  height: 12px;
+  background: #f16a47;
+  border-radius: 50% 30% 60% 40%;
+  opacity: 0.6;
+  transform: rotate(45deg);
+}
+
+/* Brush stroke divider */
+.brush-divider {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #f16a47 20%, 
+    #8a9d8a 50%, 
+    #eab308 80%, 
+    transparent 100%);
+  height: 4px;
+  position: relative;
+}
+
+.brush-divider::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: inherit;
+  filter: blur(1px);
+  opacity: 0.3;
+}

@@ -2,84 +2,102 @@ import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-primary-600/80 via-primary-700/80 to-primary-800/80 text-white overflow-hidden backdrop-blur-sm">
-      {/* Background Pattern */}
+    <section className="relative text-white overflow-hidden">
+      {/* Background image */}
       <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/painting_crew.webp')" }}
       ></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in leading-tight">
-            Professional Painting Services
-            <span className="block text-3xl md:text-5xl lg:text-6xl mt-3 text-primary-100 animate-slide-up">
-              You Can Trust
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto text-primary-50 leading-relaxed animate-fade-in opacity-90">
-            Transform your Louisville, KY space with Lou City Painting. Exceptional interior and exterior painting services for residential and commercial properties throughout Kentucky with a commitment to excellence.
-          </p>
+      {/* Blur overlay like the stats box */}
+      <div className="absolute inset-0 backdrop-blur-sm bg-black/60"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8 p-8 rounded-2xl">
+            <div>
+              <div className="inline-block px-4 py-2 bg-accent-400 text-secondary-900 rounded-full text-sm font-semibold mb-4">
+                Louisville's Premier Painting Experts
+              </div>
+              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-white">
+                Transform Your Space with
+                <span className="block text-accent-300">
+                  Expert Painting
+                </span>
+              </h1>
+            </div>
+            <p className="text-lg md:text-xl text-gray-100 leading-relaxed max-w-2xl">
+              Professional residential and commercial painting services throughout Louisville, Kentucky. Quality craftsmanship, premium materials, and customer satisfaction guaranteed.
+            </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-white text-gray-900 hover:bg-gray-50 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-soft hover:shadow-medium"
-            >
-              Get a Free Quote
-              <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link
-              to="/residential"
-              className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-primary-700/50 text-white hover:bg-primary-600/60 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 border-2 border-primary-400/30 backdrop-blur-sm"
-            >
-              Our Services
-              <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                to="/contact"
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-accent-400 text-secondary-900 hover:bg-accent-300 transition-colors duration-300"
+              >
+                Get a Free Estimate
+                <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link
+                to="/residential"
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg border-2 border-accent-400 text-accent-400 hover:bg-accent-400 hover:text-secondary-900 transition-colors duration-300"
+              >
+                View Our Services
+                <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
-            <div className="group text-center animate-fade-in hover:transform hover:scale-105 transition-all duration-300">
-              <div className="inline-flex items-center justify-center w-18 h-18 bg-white/10 rounded-2xl mb-6 group-hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
-                <svg className="w-9 h-9" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+          <div className="lg:pl-8">
+            <div className="rounded-2xl p-8 border-2 border-white/30">
+              <h3 className="text-2xl font-bold text-center mb-8">Why Louisville Trusts Us</h3>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent-300 mb-2">15+</div>
+                  <div className="text-sm text-gray-200">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent-300 mb-2">500+</div>
+                  <div className="text-sm text-gray-200">Happy Customers</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent-300 mb-2">100%</div>
+                  <div className="text-sm text-gray-200">Satisfaction Rate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent-300 mb-2">24hr</div>
+                  <div className="text-sm text-gray-200">Response Time</div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Licensed & Insured</h3>
-              <p className="text-primary-100 leading-relaxed">Fully certified professionals with comprehensive insurance coverage</p>
-            </div>
-            
-            <div className="group text-center animate-fade-in hover:transform hover:scale-105 transition-all duration-300" style={{animationDelay: '0.1s'}}>
-              <div className="inline-flex items-center justify-center w-18 h-18 bg-white/10 rounded-2xl mb-6 group-hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
-                <svg className="w-9 h-9" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
+              <div className="mt-8 pt-6 border-t border-white/20">
+                <div className="flex items-center justify-center space-x-4 text-sm text-white">
+                  <span className="flex items-center">
+                    <svg className="w-4 h-4 mr-1 text-accent-300" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    Licensed & Insured
+                  </span>
+                  <span className="flex items-center">
+                    <svg className="w-4 h-4 mr-1 text-accent-300" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    Free Estimates
+                  </span>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">5-Star Service</h3>
-              <p className="text-primary-100 leading-relaxed">Consistently rated excellent by satisfied customers</p>
-            </div>
-            
-            <div className="group text-center animate-fade-in hover:transform hover:scale-105 transition-all duration-300" style={{animationDelay: '0.2s'}}>
-              <div className="inline-flex items-center justify-center w-18 h-18 bg-white/10 rounded-2xl mb-6 group-hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
-                <svg className="w-9 h-9" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Flexible Scheduling</h3>
-              <p className="text-primary-100 leading-relaxed">Available when you need us, including evenings and weekends</p>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
+      {/* Paint brush stroke decoration */}
+      <div className="absolute bottom-0 left-0 w-full">
+        <div className="brush-divider"></div>
+      </div>
     </section>
   )
 }

@@ -7,9 +7,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:items-center">
           <div className="flex flex-col items-center text-center">
             <img 
-              src="/logo.png" 
+              src="/logo_text_white.png" 
               alt="Lou City Painting Logo" 
-              className="h-16 w-auto mb-4 opacity-90"
+              className="h-32 w-auto mb-4 opacity-90"
             />
             <p className="text-gray-300 mb-6 max-w-md">
               Professional residential and commercial painting services in Louisville, KY. 
