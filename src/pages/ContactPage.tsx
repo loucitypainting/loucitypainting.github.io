@@ -6,7 +6,7 @@ const ContactPage = () => {
     <>
       <style>{`
         .contact-bg {
-          background-image: url('/cleaning_crew.webp');
+          background-image: url('/painting_crew.webp');
           background-repeat: no-repeat;
         }
         @media (max-width: 768px) {
@@ -38,7 +38,7 @@ const ContactPage = () => {
             Contact Us
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Ready to experience professional cleaning? Get in touch for a free quote.
+            Ready to transform your space with professional painting? Get in touch for a free quote.
           </p>
         </div>
       </section>
@@ -68,7 +68,7 @@ const ContactPage = () => {
                     <div>
                       <h3 className="font-semibold text-gray-800 mb-1">Email</h3>
                       <p className="text-gray-600">
-                        <a href="mailto:info@grajalescleaning.com" className="hover:text-primary-600">info@grajalescleaning.com</a>
+                        <a href="mailto:info@loucitypainting.com" className="hover:text-primary-600">info@loucitypainting.com</a>
                       </p>
                     </div>
                   </div>
@@ -105,7 +105,7 @@ const ContactPage = () => {
               
               {/* Why Choose Us */}
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="font-bold text-gray-800 mb-4">Why Choose Grajales Mgmt & Cleaning Co.?</h3>
+                <h3 className="font-bold text-gray-800 mb-4">Why Choose Lou City Painting?</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-primary-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -123,7 +123,7 @@ const ContactPage = () => {
                     <svg className="w-5 h-5 text-primary-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-gray-700">Eco-friendly cleaning products</span>
+                    <span className="text-gray-700">Premium quality paints</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-primary-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -142,9 +142,9 @@ const ContactPage = () => {
 
               {/* Emergency Contact */}
               <div className="bg-primary-50 p-6 rounded-lg border border-primary-200">
-                <h3 className="font-bold text-primary-800 mb-2">Emergency Cleaning</h3>
+                <h3 className="font-bold text-primary-800 mb-2">Emergency Service</h3>
                 <p className="text-primary-700 text-sm">
-                  Need immediate cleaning assistance? We offer 24/7 emergency cleaning services for urgent situations. Contact us via email for emergency service requests.
+                  Need immediate painting assistance? We offer emergency painting services for urgent situations. Contact us via email for emergency service requests.
                 </p>
               </div>
             </div>
@@ -169,22 +169,22 @@ const ContactPage = () => {
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="font-semibold text-gray-800 mb-2">How do you determine pricing?</h3>
-              <p className="text-gray-600">Our pricing is based on the size of your space, frequency of cleaning, and specific services requested. We provide free, detailed quotes for all services.</p>
+              <p className="text-gray-600">Our pricing is based on the size of your project, materials selected, and specific services requested. We provide free, detailed quotes for all services.</p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="font-semibold text-gray-800 mb-2">Do I need to be home during cleaning?</h3>
-              <p className="text-gray-600">No, you don't need to be present. Many of our clients provide us with a key or access code. All our staff are bonded and insured for your peace of mind.</p>
+              <h3 className="font-semibold text-gray-800 mb-2">Do I need to be home during painting?</h3>
+              <p className="text-gray-600">You don't need to be present during exterior work. For interior painting, we can work with your schedule. All our staff are bonded and insured for your peace of mind.</p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="font-semibold text-gray-800 mb-2">What if I'm not satisfied with the cleaning?</h3>
-              <p className="text-gray-600">We guarantee your satisfaction. If you're not completely happy with our service, contact us within 24 hours and we'll return to re-clean the areas of concern at no charge.</p>
+              <h3 className="font-semibold text-gray-800 mb-2">What if I'm not satisfied with the painting?</h3>
+              <p className="text-gray-600">We guarantee your satisfaction. If you're not completely happy with our work, contact us and we'll return to touch up or repaint the areas of concern at no charge.</p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="font-semibold text-gray-800 mb-2">Do you bring your own cleaning supplies?</h3>
-              <p className="text-gray-600">Yes, we bring all necessary cleaning supplies and equipment. We use professional-grade, eco-friendly products that are safe for your family and pets.</p>
+              <h3 className="font-semibold text-gray-800 mb-2">Do you bring your own painting supplies?</h3>
+              <p className="text-gray-600">Yes, we bring all necessary painting supplies and equipment. We use professional-grade paints and materials that are durable and safe for your family.</p>
             </div>
           </div>
         </div>

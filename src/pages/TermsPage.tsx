@@ -16,7 +16,7 @@ const TermsPage = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Agreement to Terms</h2>
               <p className="text-gray-700 mb-4">
-                By accessing and using the services of Grajales Mgmt & Cleaning Co. ("Company," "we," or "us"), 
+                By accessing and using the services of Lou City Painting ("Company," "we," or "us"), 
                 you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, 
                 please do not use our services.
               </p>
@@ -25,16 +25,16 @@ const TermsPage = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Services Description</h2>
               <p className="text-gray-700 mb-4">
-                Grajales Mgmt & Cleaning Co. provides professional residential and commercial cleaning services 
+                Lou City Painting provides professional residential and commercial painting services 
                 in Louisville, Kentucky and surrounding areas. Our services include but are not limited to:
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
-                <li>Regular house cleaning and maintenance</li>
-                <li>Deep cleaning services</li>
-                <li>Commercial office cleaning</li>
-                <li>Move-in/move-out cleaning</li>
-                <li>Post-construction cleanup</li>
-                <li>Specialized cleaning services</li>
+                <li>Interior painting services</li>
+                <li>Exterior painting services</li>
+                <li>Commercial painting</li>
+                <li>Cabinet refinishing</li>
+                <li>Deck and fence staining</li>
+                <li>Specialized coating applications</li>
               </ul>
             </section>
 
@@ -59,7 +59,7 @@ const TermsPage = () => {
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Pricing</h3>
               <p className="text-gray-700 mb-4">
                 All prices are estimates based on the information provided. Final pricing may vary based 
-                on the actual condition and size of the space to be cleaned.
+                on the actual condition and size of the space to be painted.
               </p>
               
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Payment Terms</h3>
@@ -80,7 +80,7 @@ const TermsPage = () => {
                 <li>Provide safe and legal access to the property</li>
                 <li>Secure or remove valuable and fragile items</li>
                 <li>Inform us of any pets, hazardous materials, or special conditions</li>
-                <li>Provide accurate information about the space to be cleaned</li>
+                <li>Provide accurate information about the space to be painted</li>
                 <li>Be present for initial service or provide detailed access instructions</li>
               </ul>
             </section>
@@ -89,13 +89,13 @@ const TermsPage = () => {
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Liability and Insurance</h2>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Our Coverage</h3>
               <p className="text-gray-700 mb-4">
-                Grajales Mgmt & Cleaning Co. is fully licensed, bonded, and insured. We carry liability 
+                Lou City Painting is fully licensed, bonded, and insured. We carry liability 
                 insurance to protect against damages that may occur during our services.
               </p>
               
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Limitations</h3>
               <p className="text-gray-700 mb-4">
-                Our liability is limited to the cost of re-cleaning or repair/replacement of damaged items, 
+                Our liability is limited to the cost of repainting or repair/replacement of damaged items, 
                 up to the amount paid for the specific service. We are not responsible for:
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
@@ -111,7 +111,7 @@ const TermsPage = () => {
               <p className="text-gray-700 mb-4">
                 We stand behind our work with a 100% satisfaction guarantee. If you are not completely 
                 satisfied with our service, please contact us within 24 hours, and we will return to 
-                re-clean the areas of concern at no additional charge.
+                touch up or repaint the areas of concern at no additional charge.
               </p>
             </section>
 
@@ -156,10 +156,10 @@ const TermsPage = () => {
               </p>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700 mb-2">
-                  <strong>Grajales Mgmt & Cleaning Co.</strong>
+                  <strong>Lou City Painting</strong>
                 </p>
                 <p className="text-gray-700 mb-2">
-                  Email: <a href="mailto:info@grajalescleaning.com" className="text-primary-600 hover:text-primary-700">info@grajalescleaning.com</a>
+                  Email: <a href="mailto:info@loucitypainting.com" className="text-primary-600 hover:text-primary-700">info@loucitypainting.com</a>
                 </p>
                 <p className="text-gray-700">
                   Address: Louisville, KY

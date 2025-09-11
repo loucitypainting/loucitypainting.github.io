@@ -61,7 +61,7 @@ const ReviewForm = () => {
         from_email: formData.email,
         rating: formData.rating,
         message: formData.review,
-        to_name: 'Grajales Cleaning Team'
+        to_name: 'Lou City Painting Team'
       };
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
@@ -85,7 +85,7 @@ const ReviewForm = () => {
     <section className="bg-white rounded-2xl shadow-soft border border-gray-100 p-6 lg:p-10">
       <header className="mb-8">
         <h2 className="text-2xl lg:text-3xl font-bold mb-3 text-gray-800">Leave a Review</h2>
-        <p className="text-gray-600 leading-relaxed">We'd love to hear about your experience with our cleaning services!</p>
+        <p className="text-gray-600 leading-relaxed">We'd love to hear about your experience with our painting services!</p>
       </header>
       
       <form 
@@ -166,7 +166,7 @@ const ReviewForm = () => {
             value={formData.review}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 focus:outline-none hover:border-gray-400 transition-all duration-300 text-base resize-none"
-            placeholder="Tell us about your experience with our cleaning services..."
+            placeholder="Tell us about your experience with our painting services..."
           />
         </div>
 

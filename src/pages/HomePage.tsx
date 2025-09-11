@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom'
 const HomePage = () => {
   const testimonials = [
     {
-      text: "We have been using Grajales Cleaning for about 10 years now. Eliana is friendly, personable, dependable, trustworthy and thorough. She is always receptive and willing to tackle any additional areas that we typically don't have done weekly when requested. I would definitely recommend Eliana & her team.",
+      text: "Lou City Painting transformed our home! The attention to detail and professionalism was outstanding. They completed our interior painting project on time and the results exceeded our expectations. Highly recommend their team for any painting needs.",
       author: "Brittany H.",
       role: "Customer"
     },
     {
-      text: "5 stars! They do an excellent job and are extremely thorough and professional. My house never looked cleaner and I have 2 giant dogs, so my house gets filthy! I cannot recommend enough.",
+      text: "5 stars! They do an excellent job and are extremely thorough and professional. The exterior paint job on our house looks amazing even after a year. Their prep work was meticulous and it really shows in the final result. I cannot recommend enough.",
       author: "Hilary W.",
       role: "Customer"
     },
     {
-      text: "We've used Grajales for 13 years, she cleans year round every week and never misses a cleaning. We'll continue using this service as long as she's in business!",
+      text: "We've used Lou City Painting for both our home and business properties. Their commercial painting team is efficient, clean, and minimally disruptive. We'll continue using their services for all our painting needs!",
       author: "Clay J.",
       role: "Customer"
     }
@@ -25,7 +25,7 @@ const HomePage = () => {
     <>
       <style>{`
         .hero-bg {
-          background-image: url('/cleaning_crew.webp');
+          background-image: url('/painting_crew.webp');
           background-repeat: no-repeat;
         }
         @media (max-width: 768px) {
@@ -57,31 +57,44 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our Professional Cleaning Services in Louisville, KY
+              Our Professional Painting Services in Louisville, KY
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide comprehensive residential cleaning solutions throughout Louisville and Kentucky with professional maid service you can trust.
+              We provide comprehensive residential and commercial painting solutions throughout Louisville and Kentucky with professional painting service you can trust.
             </p>
           </div>
           
-          <div className="flex justify-center">
-            <div className="max-w-md">
-              <ServiceCard
-                icon={
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                  </svg>
-                }
-                title="Residential House Cleaning Louisville"
-                description="Keep your Louisville home pristine with our comprehensive residential cleaning services. We handle everything from regular house cleaning maintenance to deep cleaning throughout Kentucky."
-                features={[
-                  "Regular house cleaning",
-                  "Deep cleaning services",
-                  "Move in/out cleaning",
-                  "Eco-friendly products"
-                ]}
-              />
-            </div>
+          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <ServiceCard
+              icon={
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+              }
+              title="Residential House Painting Louisville"
+              description="Transform your Louisville home with our comprehensive residential painting services. We handle everything from interior walls to exterior siding throughout Kentucky."
+              features={[
+                "Interior painting",
+                "Exterior painting",
+                "Cabinet refinishing",
+                "Deck & fence staining"
+              ]}
+            />
+            <ServiceCard
+              icon={
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm6 6H7v2h6v-2z" clipRule="evenodd" />
+                </svg>
+              }
+              title="Commercial Painting Louisville"
+              description="Professional commercial painting services for Louisville businesses. We work efficiently to minimize disruption while delivering exceptional results."
+              features={[
+                "Office painting",
+                "Retail spaces",
+                "Industrial coatings",
+                "After-hours service"
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -90,7 +103,7 @@ const HomePage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
-            Why Choose Grajales Mgmt & Cleaning Co.?
+            Why Choose Lou City Painting?
           </h2>
           
           <div className="grid md:grid-cols-4 gap-8">
@@ -111,7 +124,7 @@ const HomePage = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Experienced Team</h3>
-              <p className="text-gray-600">Professional cleaners with years of experience</p>
+              <p className="text-gray-600">Professional painters with years of experience</p>
             </div>
             
             <div className="text-center">
@@ -120,8 +133,8 @@ const HomePage = () => {
                   <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Eco-Friendly</h3>
-              <p className="text-gray-600">Using environmentally safe cleaning products</p>
+              <h3 className="text-xl font-semibold mb-2">Quality Materials</h3>
+              <p className="text-gray-600">Using premium paints and materials for lasting results</p>
             </div>
             
             <div className="text-center">
@@ -170,7 +183,7 @@ const HomePage = () => {
         {/* Background image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/cleaning_crew.webp')" }}
+          style={{ backgroundImage: "url('/painting_crew.webp')" }}
         ></div>
         
         {/* Blur overlay */}
@@ -179,10 +192,10 @@ const HomePage = () => {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready for a Cleaner Space?
+            Ready to Transform Your Space?
           </h2>
           <p className="text-xl text-white mb-8">
-            Get your free quote today and experience the Grajales Mgmt & Cleaning Co. difference.
+            Get your free quote today and experience the Lou City Painting difference.
           </p>
           <Link
             to="/contact"

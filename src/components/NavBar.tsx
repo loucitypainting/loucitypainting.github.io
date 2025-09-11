@@ -11,7 +11,9 @@ const NavBar = () => {
   }, [location])
 
   const navLinks = [
+    { path: '/', label: 'Home' },
     { path: '/residential', label: 'Residential' },
+    { path: '/commercial', label: 'Commercial' },
     { path: '/contact', label: 'Contact' }
   ]
 
@@ -22,8 +24,8 @@ const NavBar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center group">
               <img 
-                src="/logo_no_back.png" 
-                alt="Grajales Mgmt & Cleaning Co. Logo" 
+                src="/logo.png" 
+                alt="Lou City Painting Logo" 
                 className="h-20 w-auto group-hover:scale-110 transition-transform duration-300"
               />
             </Link>

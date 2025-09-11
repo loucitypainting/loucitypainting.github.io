@@ -1,6 +1,6 @@
-# instructions.md – Development Phases for Cleaning Company Website
+# instructions.md – Development Phases for Painting Company Website
 
-These are step-by-step instructions Claude must follow to help implement the frontend of the Grajales Cleaning Company site using Vite, React, Tailwind CSS, and shadcn/ui. Follow the CLAUDE.md design principles at all times.
+These are step-by-step instructions Claude must follow to help implement the frontend of the Lou City Painting site using Vite, React, Tailwind CSS, and shadcn/ui. Follow the CLAUDE.md design principles at all times.
 
 ---
 
@@ -90,7 +90,7 @@ Develop the following components using Tailwind + shadcn/ui:
 
 - [ ] Add `<title>` and `<meta name="description">` to every page with unique, keyword-rich content
 - [ ] Use Open Graph and Twitter Card meta tags in `<head>` for social preview
-- [ ] Include city and region-specific keywords ("Louisville, KY", "house cleaning", "maid service") in page content
+- [ ] Include city and region-specific keywords ("Louisville, KY", "house painting", "commercial painting") in page content
 - [ ] Add `<link rel="canonical">` to all pages
 - [ ] Use semantic HTML (h1, h2, p, section, article, etc.)
 - [ ] Generate `public/robots.txt` to allow indexing

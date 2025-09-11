@@ -14,13 +14,13 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in leading-tight">
-            Professional Cleaning Services
+            Professional Painting Services
             <span className="block text-3xl md:text-5xl lg:text-6xl mt-3 text-primary-100 animate-slide-up">
               You Can Trust
             </span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto text-primary-50 leading-relaxed animate-fade-in opacity-90">
-            Transform your Louisville, KY space with Grajales Mgmt & Cleaning Co. Exceptional house cleaning and office cleaning services for residential and commercial properties throughout Kentucky with a commitment to excellence.
+            Transform your Louisville, KY space with Lou City Painting. Exceptional interior and exterior painting services for residential and commercial properties throughout Kentucky with a commitment to excellence.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up">

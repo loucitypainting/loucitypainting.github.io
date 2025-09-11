@@ -9,13 +9,13 @@ const CommercialPage = () => {
           <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm6 6H7v2h6v-2z" clipRule="evenodd" />
         </svg>
       ),
-      title: "Office Cleaning",
-      description: "Professional office cleaning services to maintain a productive work environment.",
+      title: "Office Painting",
+      description: "Professional office painting services to create an inspiring work environment.",
       features: [
-        "Daily, weekly, or monthly service",
-        "Desk and workstation cleaning",
-        "Common area maintenance",
-        "Restroom sanitization"
+        "Minimal business disruption",
+        "After-hours painting available",
+        "Low-odor paint options",
+        "Corporate color schemes"
       ]
     },
     {
@@ -24,13 +24,13 @@ const CommercialPage = () => {
           <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732L14.146 12.8l-1.179 4.456a1 1 0 01-1.934 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732L9.854 7.2l1.179-4.456A1 1 0 0112 2z" clipRule="evenodd" />
         </svg>
       ),
-      title: "Retail Store Cleaning",
-      description: "Keep your retail space immaculate to create the best shopping experience.",
+      title: "Retail Store Painting",
+      description: "Create an inviting retail atmosphere with professional store painting.",
       features: [
-        "Floor cleaning and maintenance",
-        "Window and glass cleaning",
-        "Fitting room sanitization",
-        "After-hours cleaning available"
+        "Brand color matching",
+        "Display wall treatments",
+        "Quick turnaround times",
+        "After-hours service available"
       ]
     },
     {
@@ -39,13 +39,13 @@ const CommercialPage = () => {
           <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
-      title: "Medical Facility Cleaning",
-      description: "Specialized medical cleaning following strict healthcare industry standards.",
+      title: "Medical Facility Painting",
+      description: "Specialized medical facility painting following healthcare standards.",
       features: [
-        "OSHA compliant cleaning",
-        "Medical waste disposal",
-        "Infection control protocols",
-        "EPA-approved disinfectants"
+        "Anti-microbial coatings",
+        "Low-VOC paint options",
+        "Minimal odor application",
+        "OSHA compliant practices"
       ]
     },
     {
@@ -55,12 +55,12 @@ const CommercialPage = () => {
         </svg>
       ),
       title: "Restaurant & Food Service",
-      description: "Comprehensive cleaning for restaurants and food service establishments.",
+      description: "Comprehensive painting for restaurants and food service establishments.",
       features: [
-        "Kitchen deep cleaning",
-        "Dining area maintenance",
-        "Health code compliance",
-        "Grease trap cleaning"
+        "Kitchen-safe coatings",
+        "Dining area ambiance",
+        "Health code compliant paints",
+        "Quick drying formulas"
       ]
     },
     {
@@ -70,12 +70,12 @@ const CommercialPage = () => {
         </svg>
       ),
       title: "Educational Facilities",
-      description: "Safe and thorough cleaning for schools and educational institutions.",
+      description: "Safe and vibrant painting for schools and educational institutions.",
       features: [
-        "Classroom sanitization",
-        "Playground cleaning",
-        "Cafeteria maintenance",
-        "Child-safe cleaning products"
+        "Classroom color schemes",
+        "Playground equipment painting",
+        "Cafeteria murals",
+        "Child-safe paint products"
       ]
     },
     {
@@ -85,12 +85,12 @@ const CommercialPage = () => {
         </svg>
       ),
       title: "Industrial & Warehouse",
-      description: "Heavy-duty cleaning for industrial facilities and warehouses.",
+      description: "Heavy-duty painting for industrial facilities and warehouses.",
       features: [
-        "High-pressure cleaning",
-        "Machinery degreasing",
-        "Floor coating maintenance",
-        "Hazardous material cleanup"
+        "Epoxy floor coatings",
+        "Safety line marking",
+        "Rust prevention coatings",
+        "High-durability paints"
       ]
     }
   ]
@@ -139,10 +139,10 @@ const CommercialPage = () => {
         <section className="bg-gradient-to-r from-primary-600/80 to-primary-800/80 text-white py-16 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Commercial Cleaning Services
+            Commercial Painting Services
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Professional cleaning solutions that keep your business running smoothly and your workspace healthy.
+            Professional painting solutions that enhance your business image and create inspiring workspaces.
           </p>
           <Link
             to="/contact"
@@ -164,7 +164,7 @@ const CommercialPage = () => {
               Our Commercial Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive cleaning solutions designed to meet the unique needs of your business.
+              Comprehensive painting solutions designed to meet the unique needs of your business.
             </p>
           </div>
           
@@ -244,7 +244,7 @@ const CommercialPage = () => {
                   <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Green Cleaning</h3>
+              <h3 className="text-xl font-semibold mb-2">Eco-Friendly Painting</h3>
               <p className="text-gray-600">Eco-friendly products available</p>
             </div>
           </div>
@@ -255,24 +255,24 @@ const CommercialPage = () => {
         <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
-            Custom Cleaning Solutions
+            Custom Painting Solutions
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Every business is unique. We work with you to create a customized cleaning plan that fits your specific 
-            needs, budget, and schedule. From one-time deep cleans to regular maintenance contracts.
+            Every business is unique. We work with you to create a customized painting plan that fits your specific 
+            needs, budget, and schedule. From complete renovations to regular maintenance touch-ups.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-md border">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">One-Time Cleaning</h3>
-              <p className="text-gray-600">Perfect for special events or deep cleaning projects</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">One-Time Projects</h3>
+              <p className="text-gray-600">Perfect for renovations or complete makeovers</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md border">
               <h3 className="text-xl font-semibold mb-2 text-gray-800">Regular Maintenance</h3>
-              <p className="text-gray-600">Daily, weekly, or monthly cleaning contracts</p>
+              <p className="text-gray-600">Annual maintenance and touch-up contracts</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md border">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Emergency Cleanup</h3>
-              <p className="text-gray-600">24/7 availability for urgent cleaning needs</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Emergency Service</h3>
+              <p className="text-gray-600">24/7 availability for urgent painting needs</p>
             </div>
           </div>
         </div>
@@ -285,7 +285,7 @@ const CommercialPage = () => {
             Ready to Elevate Your Business Environment?
           </h2>
           <p className="text-xl text-white mb-8">
-            Contact us today for a free consultation and customized quote for your commercial cleaning needs.
+            Contact us today for a free consultation and customized quote for your commercial painting needs.
           </p>
           <Link
             to="/contact"

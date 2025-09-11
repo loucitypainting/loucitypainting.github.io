@@ -1,11 +1,11 @@
-# Grajales Cleaning
+# Lou City Painting
 
-A modern, responsive website for a professional residential and commercial cleaning company. Built with React, TypeScript, and Tailwind CSS.
+A modern, responsive website for a professional residential and commercial painting company. Built with React, TypeScript, and Tailwind CSS.
 
 ## Features
 
 - **Responsive Design**: Mobile-first approach with modern UI components
-- **Service Pages**: Dedicated pages for residential and commercial cleaning services
+- **Service Pages**: Dedicated pages for residential and commercial painting services
 - **Contact System**: Functional contact form for customer inquiries
 - **Fast Performance**: Built with Vite for optimal loading speeds
 - **SEO Optimized**: Includes sitemap, robots.txt, and meta tags
@@ -30,8 +30,8 @@ A modern, responsive website for a professional residential and commercial clean
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/grajales-cleaning/grajales-cleaning.github.io.git
-cd grajales-cleaning.github.io
+git clone https://github.com/loucitypainting/loucitypainting.github.io.git
+cd loucitypainting.github.io
 ```
 
 2. Install dependencies:
@@ -139,4 +139,4 @@ This command will:
 
 ## License
 
-This project is private and proprietary to Grajales Cleaning.
+This project is private and proprietary to Lou City Painting.

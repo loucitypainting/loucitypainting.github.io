@@ -16,9 +16,9 @@ const PrivacyPage = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Introduction</h2>
               <p className="text-gray-700 mb-4">
-                Grajales Mgmt & Cleaning Co. ("we," "our," or "us") is committed to protecting your privacy. 
+                Lou City Painting ("we," "our," or "us") is committed to protecting your privacy. 
                 This Privacy Policy explains how we collect, use, disclose, and safeguard your information when 
-                you visit our website or use our cleaning services.
+                you visit our website or use our painting services.
               </p>
             </section>
 
@@ -31,7 +31,7 @@ const PrivacyPage = () => {
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
                 <li>Name and contact information (email, phone number, address)</li>
-                <li>Service preferences and cleaning requirements</li>
+                <li>Service preferences and painting project requirements</li>
                 <li>Payment information (processed securely through our payment processors)</li>
                 <li>Communications with our customer service team</li>
               </ul>
@@ -54,7 +54,7 @@ const PrivacyPage = () => {
                 We use the collected information for the following purposes:
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
-                <li>To provide and maintain our cleaning services</li>
+                <li>To provide and maintain our painting services</li>
                 <li>To process payments and manage your account</li>
                 <li>To communicate with you about services, appointments, and updates</li>
                 <li>To improve our website and services</li>
@@ -122,10 +122,10 @@ const PrivacyPage = () => {
               </p>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700 mb-2">
-                  <strong>Grajales Mgmt & Cleaning Co.</strong>
+                  <strong>Lou City Painting</strong>
                 </p>
                 <p className="text-gray-700 mb-2">
-                  Email: <a href="mailto:info@grajalescleaning.com" className="text-primary-600 hover:text-primary-700">info@grajalescleaning.com</a>
+                  Email: <a href="mailto:info@loucitypainting.com" className="text-primary-600 hover:text-primary-700">info@loucitypainting.com</a>
                 </p>
                 <p className="text-gray-700">
                   Address: Louisville, KY

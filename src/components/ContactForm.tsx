@@ -216,11 +216,11 @@ const ContactForm = () => {
               className={inputClasses('service')}
             >
               <option value="">Select a service</option>
-              <option value="residential-regular">Residential - Regular Cleaning</option>
-              <option value="residential-deep">Residential - Deep Cleaning</option>
-              <option value="residential-movein">Residential - Move In/Out</option>
-              <option value="commercial-office">Commercial - Office Cleaning</option>
-              <option value="commercial-retail">Commercial - Retail Cleaning</option>
+              <option value="residential-interior">Residential - Interior Painting</option>
+              <option value="residential-exterior">Residential - Exterior Painting</option>
+              <option value="residential-cabinet">Residential - Cabinet Refinishing</option>
+              <option value="commercial-office">Commercial - Office Painting</option>
+              <option value="commercial-retail">Commercial - Retail Painting</option>
               <option value="commercial-medical">Commercial - Medical Facility</option>
               <option value="other">Other (please specify)</option>
             </select>
@@ -249,7 +249,7 @@ const ContactForm = () => {
             aria-describedby={errors.message ? "message-error" : undefined}
             aria-invalid={!!errors.message}
             className={`${inputClasses('message')} resize-none`}
-            placeholder="Please tell us about your cleaning needs, property size, and preferred schedule..."
+            placeholder="Please tell us about your painting project, property size, and preferred timeline..."
           ></textarea>
           {errors.message && (
             <p id="message-error" className="mt-2 text-sm text-red-600 flex items-center" role="alert">

@@ -1,8 +1,8 @@
-# CLAUDE.md – Global Instructions for Cleaning Company Website
+# CLAUDE.md – Global Instructions for Painting Company Website
 
 ## 🧠 Project Overview
 
-**Purpose**: Build a fast, responsive, professional website for a local cleaning company called Grajales Cleaning using modern frontend frameworks.
+**Purpose**: Build a fast, responsive, professional website for a local painting company called Lou City Painting using modern frontend frameworks.
 
 **Vision**: The final product should:
 - Present residential and commercial services cleanly

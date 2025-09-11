@@ -5,7 +5,7 @@ Allow: /
 Disallow:
 
 # Sitemap location
-Sitemap: https://grajalescleaning.com/sitemap.xml
+Sitemap: https://loucitypainting.com/sitemap.xml
 
 # Crawl delay (optional - be respectful to search engines)
 Crawl-delay: 1
