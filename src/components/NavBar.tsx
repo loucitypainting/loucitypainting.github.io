@@ -22,11 +22,11 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center group">
+            <Link to="/" className="flex-shrink-0 flex items-center group pt-1">
               <img 
                 src="/logo.png" 
                 alt="Lou City Painting Logo" 
-                className="h-24 w-auto group-hover:scale-110 transition-transform duration-300"
+                className="h-28 w-auto group-hover:scale-110 transition-transform duration-300"
               />
             </Link>
           </div>
