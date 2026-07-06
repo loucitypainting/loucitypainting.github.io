@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-4 text-center md:text-left">
             <Link to="/" className="inline-block mb-5">
-              <img src="/logo_text_white.png" alt="Lou City Painting" className="h-28 md:h-24 w-auto opacity-90" />
+              <img src="/logo_text_white_trim.png" alt="Lou City Painting" className="h-20 md:h-16 w-auto opacity-90" />
             </Link>
             <p className="text-white/40 text-sm font-light leading-relaxed max-w-xs mx-auto md:mx-0 mb-7">
               Louisville's trusted painting professionals for residential and commercial

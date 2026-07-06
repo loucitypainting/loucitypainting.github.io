@@ -37,14 +37,14 @@ const NavBar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-20' : 'h-24'}`}>
+          <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
 
             {/* Logo */}
             <Link to="/" viewTransition className="flex-shrink-0">
               <img
-                src="/logo.png"
+                src="/logo_trim.png"
                 alt="Lou City Painting"
-                className={`w-auto transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}
+                className={`w-auto transition-all duration-300 ${scrolled ? 'h-12' : 'h-14'}`}
               />
             </Link>
 
@@ -118,7 +118,7 @@ const NavBar = () => {
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-ink/[0.08]">
-            <img src="/logo.png" alt="Lou City Painting" className="h-14 w-auto" />
+            <img src="/logo_trim.png" alt="Lou City Painting" className="h-11 w-auto" />
             <button
               onClick={() => setIsOpen(false)}
               className="p-1.5 text-ink/50 hover:text-ink transition-colors"
