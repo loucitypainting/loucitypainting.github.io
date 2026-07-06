@@ -328,7 +328,9 @@ const HomePage = () => {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-28 bg-ink grain relative overflow-hidden" aria-labelledby="cta-heading">
+      {/* Reduced bottom padding: the footer directly below is the same dark
+          color, so a big pb here just creates a large empty gap above the logo. */}
+      <section className="pt-28 pb-12 bg-ink grain relative overflow-hidden" aria-labelledby="cta-heading">
         {/* Large faded "PAINT" background text */}
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"

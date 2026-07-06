@@ -204,7 +204,8 @@ const CommercialPage = () => {
       </section>
 
       {/* ── Custom Solutions ───────────────────────────────── */}
-      <section className="py-28 bg-ink grain" aria-labelledby="custom-heading">
+      {/* Reduced bottom padding: the dark footer follows directly below. */}
+      <section className="pt-28 pb-12 bg-ink grain" aria-labelledby="custom-heading">
         <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center">
           <p className="label-tag-light justify-center mb-6">Tailored to Your Business</p>
           <h2 id="custom-heading" className="font-display font-black text-4xl sm:text-5xl text-white mb-6 leading-tight">
