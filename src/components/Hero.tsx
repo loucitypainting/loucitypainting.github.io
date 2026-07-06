@@ -28,7 +28,9 @@ const Hero = () => {
           .hero-photo { background-position: center; }
         }
         .hero-title {
-          font-size: clamp(3.75rem, 12vw, 9.5rem);
+          /* Lower min so the long word "LOUISVILLE." fits narrow phones
+             instead of being clipped by the section's overflow-hidden. */
+          font-size: clamp(2.5rem, 12.5vw, 9.5rem);
           line-height: 0.92;
           letter-spacing: -0.02em;
         }

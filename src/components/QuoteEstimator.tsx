@@ -201,7 +201,7 @@ const QuoteEstimator = () => {
       {/* ── Result ───────────────────────────────── */}
       <div className="lg:col-span-2 bg-ink grain p-7 sm:p-9 flex flex-col justify-center text-center relative">
         <p className="label-tag-light justify-center mb-4">Your Estimate</p>
-        <div className="font-display font-black text-white leading-none mb-1" style={{ fontSize: 'clamp(2.25rem, 6vw, 3.25rem)' }}>
+        <div className="font-display font-black text-white leading-none mb-1" style={{ fontSize: 'clamp(1.9rem, 6vw, 3.25rem)' }}>
           {money(low)}
           <span className="text-white/30 mx-1.5">–</span>
           {money(high)}
