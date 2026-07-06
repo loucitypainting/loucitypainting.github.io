@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-ink grain">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-10 lg:pt-14 pb-10">
 
         {/* Top grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-white/[0.08]">
