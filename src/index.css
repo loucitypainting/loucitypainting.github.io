@@ -1,47 +1,493 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Barlow:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
-/* Paint brush stroke pattern */
-.paint-texture {
-  background-image: 
-    linear-gradient(45deg, transparent 40%, rgba(241, 106, 71, 0.1) 40%, rgba(241, 106, 71, 0.1) 60%, transparent 60%),
-    linear-gradient(-45deg, transparent 40%, rgba(138, 157, 138, 0.1) 40%, rgba(138, 157, 138, 0.1) 60%, transparent 60%);
-  background-size: 30px 30px;
+/* Load the legacy JS config so the custom color palette, fonts, and shadows
+   generate as Tailwind utilities (text-sienna, fill-gold, font-display, …).
+   Without this, Tailwind v4 ignores tailwind.config.js entirely. */
+@config "../tailwind.config.js";
+
+/* ── Base ─────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #faf5ed;
+  color: #0f1923;
 }
 
-/* Paint splatter effect */
-.paint-splatter::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 12px;
-  height: 12px;
-  background: #f16a47;
-  border-radius: 50% 30% 60% 40%;
-  opacity: 0.6;
-  transform: rotate(45deg);
+/* ── Design Tokens ────────────────────────────────── */
+:root {
+  --ink:          #0f1923;
+  --ink-mid:      #1a2e42;
+  --cream:        #faf5ed;
+  --cream-dark:   #f0e6d3;
+  --sienna:       #bf4b26;
+  --sienna-light: #d4652f;
+  --sienna-dark:  #9a3a1c;
+  --gold:         #c4882b;
+  --slate:        #4a5e72;
+  --slate-light:  #7a8fa3;
 }
 
-/* Brush stroke divider */
-.brush-divider {
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    #f16a47 20%, 
-    #8a9d8a 50%, 
-    #eab308 80%, 
-    transparent 100%);
-  height: 4px;
+/* ── Film Grain (dark sections) ───────────────────── */
+.grain {
   position: relative;
+  isolation: isolate;
 }
-
-.brush-divider::after {
+.grain::after {
   content: '';
   position: absolute;
-  top: -2px;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+}
+/* NOTE: we intentionally do NOT force `position: relative` on .grain children.
+   Doing so overrode Tailwind's `absolute` utility (unlayered CSS beats layered
+   utilities), collapsing absolutely-positioned hero background/overlay layers to
+   0×0. Content that must sit above the grain uses an explicit z-10 in markup;
+   the grain sits at z-index 2, above background layers but below that content. */
+
+/* ── Section Diagonal Cuts ────────────────────────── */
+.cut-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+.cut-top {
+  clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
+}
+.cut-both {
+  clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
+}
+
+/* ── Label Tag (small-caps section label) ─────────── */
+.label-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sienna);
+}
+.label-tag::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 1.5px;
+  background: var(--sienna);
+  flex-shrink: 0;
+}
+.label-tag-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.label-tag-light::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 1.5px;
+  background: var(--sienna-light);
+  flex-shrink: 0;
+}
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--sienna);
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid var(--sienna);
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--sienna-light);
+  border-color: var(--sienna-light);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid rgba(255,255,255,0.30);
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease;
+  white-space: nowrap;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.55);
+}
+
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--ink);
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  transition: background 0.22s ease, transform 0.22s ease;
+  white-space: nowrap;
+}
+.btn-ink:hover {
+  background: var(--ink-mid);
+  transform: translateY(-2px);
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid rgba(15,25,35,0.25);
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease;
+  white-space: nowrap;
+}
+.btn-outline-light:hover {
+  background: rgba(15,25,35,0.06);
+  border-color: rgba(15,25,35,0.5);
+}
+
+/* ── Card ─────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid rgba(15,25,35,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px -12px rgba(15,25,35,0.15);
+  border-color: rgba(191,75,38,0.20);
+}
+
+/* ── Paint Stroke SVG Underline ───────────────────── */
+.paint-stroke-path {
+  stroke-dasharray: 520;
+  stroke-dashoffset: 520;
+  animation: strokeDraw 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+}
+@keyframes strokeDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ── Keyframes ────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleX {
+  from { opacity: 0; transform: scaleX(0); transform-origin: left; }
+  to   { opacity: 1; transform: scaleX(1); transform-origin: left; }
+}
+@keyframes bounceY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* ── Animation Utilities ──────────────────────────── */
+.anim-fade-up   { animation: fadeUp 0.7s ease-out both; }
+.anim-fade-up-1 { animation: fadeUp 0.7s 0.12s ease-out both; }
+.anim-fade-up-2 { animation: fadeUp 0.7s 0.24s ease-out both; }
+.anim-fade-up-3 { animation: fadeUp 0.7s 0.36s ease-out both; }
+.anim-fade-up-4 { animation: fadeUp 0.7s 0.48s ease-out both; }
+.anim-fade-in   { animation: fadeIn 0.6s ease-out both; }
+.anim-slide-left { animation: slideLeft 0.7s ease-out both; }
+.anim-scale-x   { animation: scaleX 0.6s ease-out both; }
+.anim-bounce-y  { animation: bounceY 2s ease-in-out infinite; }
+
+/* ── Background Shorthands ────────────────────────── */
+.bg-ink        { background-color: var(--ink); }
+.bg-ink-mid    { background-color: var(--ink-mid); }
+.bg-cream      { background-color: var(--cream); }
+.bg-cream-dark { background-color: var(--cream-dark); }
+.bg-sienna     { background-color: var(--sienna); }
+
+/* ── Divider ──────────────────────────────────────── */
+.sienna-rule {
+  width: 3rem;
+  height: 2px;
+  background: var(--sienna);
+}
+
+/* ── Inline link ──────────────────────────────────── */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 0.28s ease;
+}
+.link-underline:hover::after { width: 100%; }
+
+/* ── Service number accent ────────────────────────── */
+.step-num {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 900;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--sienna);
+  opacity: 0.15;
+  user-select: none;
+}
+
+/* ── Scroll Reveal ────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-up     { transform: translateY(30px); }
+.reveal-fade   { transform: none; }
+.reveal-left   { transform: translateX(-34px); }
+.reveal-right  { transform: translateX(34px); }
+.reveal-scale  { transform: scale(0.94); }
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Before / After Slider ────────────────────────── */
+.ba-slider {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: ew-resize;
+}
+.ba-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.ba-after {
+  position: absolute;
+  inset: 0;
+  /* clipped from the right; width driven by --pos */
+  clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+}
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos, 50%);
+  width: 2px;
+  background: #fff;
+  transform: translateX(-1px);
+  box-shadow: 0 0 0 1px rgba(15, 25, 35, 0.15);
+  pointer-events: none;
+}
+.ba-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px -4px rgba(15, 25, 35, 0.45);
+}
+.ba-tag {
+  position: absolute;
+  bottom: 0.85rem;
+  padding: 0.28rem 0.7rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(15, 25, 35, 0.6);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+/* ── Range slider (estimator) ─────────────────────── */
+.range-sienna {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--cream-dark);
+  outline: none;
+}
+.range-sienna::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--sienna);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px -1px rgba(191, 75, 38, 0.5);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.range-sienna::-webkit-slider-thumb:hover { transform: scale(1.12); }
+.range-sienna::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--sienna);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px -1px rgba(191, 75, 38, 0.5);
+  cursor: pointer;
+}
+
+/* ── Scroll Progress Bar ──────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sienna), var(--gold));
+  z-index: 70;
+  width: 0;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── Sticky Mobile Action Bar ─────────────────────── */
+.mobile-bar {
+  position: fixed;
   left: 0;
   right: 0;
-  height: 8px;
-  background: inherit;
-  filter: blur(1px);
-  opacity: 0.3;
+  bottom: 0;
+  z-index: 55;
+  display: none; /* hidden by default; only shown on small screens below */
+  grid-template-columns: 1fr 1fr;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(15, 25, 35, 0.08);
+  box-shadow: 0 -8px 30px -12px rgba(15, 25, 35, 0.25);
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+@media (max-width: 767px) {
+  .mobile-bar { display: grid; }
+}
+.mobile-bar.mobile-bar-visible { transform: translateY(0); }
+
+/* ── Lightbox ─────────────────────────────────────── */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(9, 14, 20, 0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease-out both;
+}
+
+/* ── View Transitions (route changes) ─────────────── */
+::view-transition-old(root) {
+  animation: vt-fade-out 0.28s ease both;
+}
+::view-transition-new(root) {
+  animation: vt-fade-in 0.34s ease both;
+}
+@keyframes vt-fade-out {
+  to { opacity: 0; transform: translateY(-8px); }
+}
+@keyframes vt-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+/* ── Reduced Motion ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .anim-fade-up,
+  .anim-fade-up-1,
+  .anim-fade-up-2,
+  .anim-fade-up-3,
+  .anim-fade-up-4,
+  .anim-fade-in,
+  .anim-slide-left,
+  .anim-scale-x,
+  .anim-bounce-y,
+  .paint-stroke-path {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
 }

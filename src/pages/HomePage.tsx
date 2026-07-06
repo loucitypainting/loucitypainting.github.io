@@ -1,248 +1,372 @@
 import Hero from '../components/Hero'
 import ServiceCard from '../components/ServiceCard'
+import Reveal from '../components/Reveal'
+import BeforeAfter from '../components/BeforeAfter'
+import Gallery from '../components/Gallery'
+import QuoteEstimator from '../components/QuoteEstimator'
 import { Link } from 'react-router-dom'
+import {
+  Home,
+  Building2,
+  Shield,
+  Users,
+  Star,
+  Award,
+  Clock,
+  Wrench,
+  ArrowRight,
+  Phone,
+  MapPin,
+  CheckCircle2,
+} from 'lucide-react'
+
+/* Feature flags — toggle these on once the business has real reviews and a
+   portfolio of completed projects. Off for now (brand-new business). */
+const SHOW_TESTIMONIALS = false
+const SHOW_GALLERY = false
+
+const testimonials = [
+  {
+    text: 'Lou City Painting transformed our home! The attention to detail and professionalism was outstanding. They completed our interior painting project on time and the results exceeded our expectations.',
+    author: 'Brittany H.',
+    role: 'Homeowner, St. Matthews',
+    initials: 'BH',
+  },
+  {
+    text: '5 stars! They do an excellent job and are extremely thorough and professional. The exterior paint job on our house looks amazing even after a year. Their prep work was meticulous.',
+    author: 'Hilary W.',
+    role: 'Homeowner, The Highlands',
+    initials: 'HW',
+  },
+  {
+    text: "We've used Lou City Painting for both our home and business. Their commercial painting team is efficient, clean, and minimally disruptive. We'll continue using their services.",
+    author: 'Clay J.',
+    role: 'Business Owner, Downtown',
+    initials: 'CJ',
+  },
+]
+
+const serviceAreas = [
+  'St. Matthews', 'The Highlands', 'Jeffersontown',
+  'Middletown', 'Prospect', 'Anchorage',
+  'Norton Commons', 'New Albany, IN', 'Clarksville, IN',
+]
+
+const whyUs = [
+  { icon: Wrench,      title: 'Premium Materials',       desc: 'We use top-quality paints and materials for lasting, beautiful results.' },
+  { icon: Clock,       title: 'On Time, Every Time',     desc: 'We respect your schedule and complete projects when promised.' },
+  { icon: CheckCircle2,title: '100% Satisfaction',       desc: "Not happy with the finish? We'll return and make it right — at no extra cost." },
+  { icon: Users,       title: 'Skilled Painters',        desc: 'Meticulous, background-checked painters who treat your property with care.' },
+  { icon: Shield,      title: 'Clean & Respectful',      desc: 'We protect your space, keep the site tidy, and clean up fully when we finish.' },
+  { icon: Award,       title: 'Detail-Obsessed Prep',    desc: 'Thorough prep, patching, and priming for a flawless, long-lasting result.' },
+]
 
 const HomePage = () => {
-  const testimonials = [
-    {
-      text: "Lou City Painting transformed our home! The attention to detail and professionalism was outstanding. They completed our interior painting project on time and the results exceeded our expectations. Highly recommend their team for any painting needs.",
-      author: "Brittany H.",
-      role: "Customer"
-    },
-    {
-      text: "5 stars! They do an excellent job and are extremely thorough and professional. The exterior paint job on our house looks amazing even after a year. Their prep work was meticulous and it really shows in the final result. I cannot recommend enough.",
-      author: "Hilary W.",
-      role: "Customer"
-    },
-    {
-      text: "We've used Lou City Painting for both our home and business properties. Their commercial painting team is efficient, clean, and minimally disruptive. We'll continue using their services for all our painting needs!",
-      author: "Clay J.",
-      role: "Customer"
-    }
-  ]
-
   return (
     <>
-      <style>{`
-        .hero-bg {
-          background-image: url('/painting_crew.webp');
-          background-repeat: no-repeat;
-        }
-        @media (max-width: 768px) {
-          .hero-bg {
-            background-attachment: scroll;
-            background-size: 100% auto;
-            background-position: top center;
-            min-height: 100vh;
-          }
-        }
-        @media (min-width: 769px) {
-          .hero-bg {
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center center;
-          }
-        }
-      `}</style>
-      <div className="min-h-screen relative hero-bg">
-      {/* Blur overlay like the stats box */}
-      <div className="absolute inset-0 backdrop-blur-sm bg-black/60 z-0"></div>
-      
-      {/* Content wrapper */}
-      <div className="relative z-10">
-        <Hero />
-      
-      {/* Services Overview */}
-      <section className="py-20 bg-gray-50 relative">
-        <div className="absolute top-0 left-0 w-full h-1 brush-divider"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">
-              Our Expertise
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary-800 mb-6">
-              Complete Painting Solutions
-              <span className="block text-primary-600 text-3xl md:text-4xl mt-2">for Louisville & Beyond</span>
-            </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
-              From residential refreshes to commercial transformations, we bring expertise, quality materials, and attention to detail to every project.
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <ServiceCard
-              icon={
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                </svg>
-              }
-              title="Residential House Painting Louisville"
-              description="Transform your Louisville home with our comprehensive residential painting services. We handle everything from interior walls to exterior siding throughout Kentucky."
-              features={[
-                "Interior painting",
-                "Exterior painting",
-                "Cabinet refinishing",
-                "Deck & fence staining"
-              ]}
-              linkTo="/residential"
-            />
-            <ServiceCard
-              icon={
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm6 6H7v2h6v-2z" clipRule="evenodd" />
-                </svg>
-              }
-              title="Commercial Painting Louisville"
-              description="Professional commercial painting services for Louisville businesses. We work efficiently to minimize disruption while delivering exceptional results."
-              features={[
-                "Office painting",
-                "Retail spaces",
-                "Industrial coatings",
-                "After-hours service"
-              ]}
-              linkTo="/commercial"
-            />
-          </div>
-        </div>
-      </section>
+      <Hero />
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
-            <div className="lg:col-span-1">
-              <h2 className="text-4xl md:text-5xl font-bold text-secondary-800 mb-6">
-                The Lou City
-                <span className="block text-primary-600">Difference</span>
+      {/* ── Services ──────────────────────────────────────── */}
+      <section className="py-28 bg-cream" aria-labelledby="services-heading">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          <Reveal className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+            <div>
+              <p className="label-tag mb-4">Our Services</p>
+              <h2 id="services-heading" className="font-display font-black text-4xl sm:text-5xl text-ink leading-tight">
+                Complete Painting<br />
+                <span className="italic text-sienna">Solutions</span> for Louisville
               </h2>
-              <p className="text-lg text-secondary-600 mb-8">
-                When you choose Lou City Painting, you're choosing Louisville's most trusted painting professionals. Here's what sets us apart from the competition.
-              </p>
-              <div className="brush-divider w-full max-w-md"></div>
             </div>
-            
-            <div className="lg:col-span-2">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-secondary-800 mb-2">Licensed & Insured</h3>
-                  <p className="text-secondary-600 text-sm">Fully licensed and insured for your peace of mind</p>
+            <p className="font-sans font-light text-slate text-base max-w-sm leading-relaxed lg:text-right lg:pb-2">
+              From residential refreshes to commercial transformations,
+              expert craftsmanship on every project.
+            </p>
+          </Reveal>
+
+          <div className="grid lg:grid-cols-2 gap-5">
+            <Reveal delay={60}>
+              <ServiceCard
+                icon={<Home className="w-5 h-5" />}
+                title="Residential Painting"
+                description="Transform your Louisville home with our comprehensive residential painting services — from interior walls to exterior siding throughout Kentucky."
+                features={['Interior painting', 'Exterior painting', 'Cabinet refinishing', 'Deck & fence staining']}
+                linkTo="/residential"
+              />
+            </Reveal>
+            <Reveal delay={160}>
+              <ServiceCard
+                icon={<Building2 className="w-5 h-5" />}
+                title="Commercial Painting"
+                description="Professional commercial painting for Louisville businesses. We work efficiently to minimize disruption while delivering exceptional results."
+                features={['Office & retail spaces', 'Industrial coatings', 'After-hours service', 'Multi-location projects']}
+                linkTo="/commercial"
+              />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Before / After Showcase ───────────────────────── */}
+      <section className="py-28 bg-cream-dark overflow-hidden" aria-labelledby="ba-heading">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <Reveal variant="left">
+              <p className="label-tag mb-4">See the Difference</p>
+              <h2 id="ba-heading" className="font-display font-black text-4xl sm:text-5xl text-ink leading-tight mb-6">
+                Drag to reveal<br />
+                <span className="italic text-sienna">the transformation</span>
+              </h2>
+              <p className="font-sans font-light text-slate text-base leading-relaxed mb-8 max-w-md">
+                Tired, weathered siding becomes a crisp, protected finish that lifts your
+                whole home. Grab the handle and slide to see the difference a fresh,
+                professional coat makes.
+              </p>
+              <Link to="/contact" className="btn-ink">
+                Start Your Project <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Reveal>
+
+            <Reveal variant="right" delay={120}>
+              <BeforeAfter
+                beforeSrc="/residential_before.webp"
+                afterSrc="/residential.webp"
+                beforeAlt="Faded, weathered home exterior before painting"
+                afterAlt="Freshly painted, vibrant home exterior after painting"
+              />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Lou City — dark editorial ─────────────────── */}
+      <section className="py-28 bg-ink grain" aria-labelledby="why-heading">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          <Reveal className="mb-16">
+            <p className="label-tag-light mb-4">The Lou City Standard</p>
+            <h2 id="why-heading" className="font-display font-black text-4xl sm:text-5xl text-white leading-tight">
+              Why Louisville<br />
+              <span className="italic text-white/30">Chooses</span> Us
+            </h2>
+          </Reveal>
+
+          {/* Big award callout + feature grid */}
+          <div className="grid lg:grid-cols-12 gap-6">
+
+            {/* Large feature */}
+            <div className="lg:col-span-5 bg-sienna p-8 sm:p-10 flex flex-col justify-between min-h-[320px]">
+              <div>
+                <div className="w-12 h-12 bg-white/15 flex items-center justify-center mb-6">
+                  <Award className="w-6 h-6 text-white" />
                 </div>
-            
-                <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-accent-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-secondary-800 mb-2">Expert Team</h3>
-                  <p className="text-secondary-600 text-sm">Professional painters with 15+ years experience</p>
-                </div>
-            
-                <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-secondary-800 mb-2">Premium Materials</h3>
-                  <p className="text-secondary-600 text-sm">Top-quality paints and materials for lasting results</p>
-                </div>
-            
-                <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-secondary-800 mb-2">100% Guaranteed</h3>
-                  <p className="text-secondary-600 text-sm">Complete satisfaction guarantee on all services</p>
-                </div>
+                <h3 className="font-display font-black text-3xl sm:text-4xl text-white leading-tight mb-4">
+                  Fresh Painting, Done Right
+                </h3>
+                <p className="font-sans font-light text-white/70 text-sm leading-relaxed">
+                  Lou City Painting brings meticulous prep, premium materials, and a
+                  satisfaction guarantee to every Louisville home and business. We treat
+                  your property like our own — and stand behind every finish.
+                </p>
               </div>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 font-sans font-semibold text-xs uppercase tracking-widest text-white/70 hover:text-white transition-colors mt-8 link-underline"
+              >
+                Get Your Free Quote <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* Feature grid */}
+            <div className="lg:col-span-7 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {whyUs.map(({ icon: Icon, title, desc }, i) => (
+                <Reveal
+                  key={title}
+                  delay={(i % 3) * 80}
+                  className="bg-white/[0.04] border border-white/[0.08] p-5 hover:bg-white/[0.07] hover:border-white/[0.14] transition-all duration-300 group"
+                >
+                  <div className="w-10 h-10 bg-sienna flex items-center justify-center mb-4 group-hover:bg-sienna-light transition-colors">
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="font-sans font-semibold text-white/85 text-sm mb-2">{title}</h3>
+                  <p className="font-sans font-light text-white/40 text-xs leading-relaxed">{desc}</p>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-gray-50 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-accent-100 text-accent-700 rounded-full text-sm font-semibold mb-4">
-              Client Reviews
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary-800 mb-6">
-              Louisville Loves
-              <span className="block text-primary-600">Our Work</span>
+      {/* ── Testimonials (hidden until real reviews exist) ─── */}
+      {SHOW_TESTIMONIALS && (
+      <section className="py-28 bg-cream-dark" aria-labelledby="testimonials-heading">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          <Reveal className="text-center mb-16">
+            <p className="label-tag justify-center mb-4">Client Reviews</p>
+            <h2 id="testimonials-heading" className="font-display font-black text-4xl sm:text-5xl text-ink">
+              Louisville Loves<br />
+              <span className="italic text-sienna">Our Work</span>
             </h2>
-            <p className="text-xl text-secondary-600 max-w-2xl mx-auto">
-              Don't just take our word for it - see what our satisfied customers have to say about their Lou City Painting experience.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gradient-to-br from-primary-50 to-accent-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-primary-100">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {testimonials.map((t, i) => (
+              <Reveal key={i} delay={i * 110} className="card bg-white p-8 flex flex-col">
+                {/* Stars */}
+                <div className="flex gap-0.5 mb-5">
+                  {[...Array(5)].map((_, si) => (
+                    <Star key={si} className="w-4 h-4 fill-gold text-gold" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
-                <div>
-                  <p className="font-semibold text-gray-800">{testimonial.author}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+
+                {/* Opening quote mark */}
+                <span className="font-display font-black text-7xl text-sienna/12 leading-none -mt-4 mb-1 select-none" aria-hidden="true">
+                  &ldquo;
+                </span>
+
+                {/* Text */}
+                <p className="font-sans font-light text-sm text-slate leading-relaxed flex-grow mb-7 -mt-2">
+                  {t.text}
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-3 pt-5 border-t border-ink/[0.07] mt-auto">
+                  <div className="w-10 h-10 bg-sienna flex items-center justify-center font-display font-black text-sm text-white flex-shrink-0">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="font-sans font-semibold text-ink text-sm">{t.author}</p>
+                    <p className="font-sans text-slate-light text-xs">{t.role}</p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
+      )}
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 via-primary-700 to-secondary-700 relative overflow-hidden">
-        
-        {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Transform
-            <span className="block text-accent-300">Your Space?</span>
-          </h2>
-          <p className="text-xl text-gray-100 mb-8 leading-relaxed">
-            Join hundreds of satisfied Louisville customers who have trusted us with their painting projects. Get your free, no-obligation estimate today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 text-lg"
-            >
-              Get a Free Estimate
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link
-              to="/residential" 
-              className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-300 text-lg"
-            >
-              View Portfolio
-            </Link>
-          </div>
-        </div>
-        
-        {/* Bottom brush stroke */}
-        <div className="absolute bottom-0 left-0 w-full">
-          <div className="brush-divider"></div>
+      {/* ── Recent Work Gallery (hidden until portfolio exists) ─ */}
+      {SHOW_GALLERY && (
+      <section className="py-28 bg-cream" aria-labelledby="gallery-heading">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <Reveal className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+            <div>
+              <p className="label-tag mb-4">Our Portfolio</p>
+              <h2 id="gallery-heading" className="font-display font-black text-4xl sm:text-5xl text-ink leading-tight">
+                Recent Work<br />
+                <span className="italic text-sienna">Around Louisville</span>
+              </h2>
+            </div>
+            <p className="font-sans font-light text-slate text-base max-w-sm leading-relaxed lg:text-right lg:pb-2">
+              A look at homes and businesses we've recently transformed.
+              Tap any project to see it up close.
+            </p>
+          </Reveal>
+          <Gallery />
         </div>
       </section>
-      </div>
-    </div>
+      )}
+
+      {/* ── Instant Estimate ──────────────────────────────── */}
+      <section className="py-28 bg-cream-dark" aria-labelledby="estimate-heading">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <Reveal className="text-center mb-12">
+            <p className="label-tag justify-center mb-4">No Waiting, No Pressure</p>
+            <h2 id="estimate-heading" className="font-display font-black text-4xl sm:text-5xl text-ink leading-tight">
+              What Will It<br />
+              <span className="italic text-sienna">Cost?</span>
+            </h2>
+          </Reveal>
+          <Reveal variant="scale" delay={100}>
+            <QuoteEstimator />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Service Areas ─────────────────────────────────── */}
+      <section className="py-24 bg-cream" aria-labelledby="areas-heading">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-12">
+
+            <div className="lg:w-2/5">
+              <p className="label-tag mb-4">Where We Work</p>
+              <h2 id="areas-heading" className="font-display font-black text-3xl sm:text-4xl text-ink mb-5 leading-tight">
+                Serving Louisville<br />& Surrounding<br />Communities
+              </h2>
+              <p className="font-sans font-light text-slate text-sm leading-relaxed mb-6">
+                From the Highlands to the East End suburbs, we proudly serve homeowners
+                and businesses throughout the greater Louisville metro.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 font-sans font-semibold text-xs uppercase tracking-widest text-sienna link-underline"
+              >
+                Check your area <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            <div className="lg:w-3/5">
+              <div className="flex flex-wrap gap-2.5">
+                {serviceAreas.map((area) => (
+                  <span
+                    key={area}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-ink/[0.08] font-sans text-sm text-ink/70 hover:border-sienna/40 hover:text-sienna transition-all duration-200 cursor-default"
+                  >
+                    <MapPin className="w-3 h-3 text-sienna" />
+                    {area}
+                  </span>
+                ))}
+                <span className="inline-flex items-center px-4 py-2.5 bg-sienna/10 border border-sienna/20 font-sans text-sm font-semibold text-sienna">
+                  + More areas
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ───────────────────────────────────────────── */}
+      <section className="py-28 bg-ink grain relative overflow-hidden" aria-labelledby="cta-heading">
+        {/* Large faded "PAINT" background text */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+          aria-hidden="true"
+        >
+          <span
+            className="font-display font-black text-white/[0.025] whitespace-nowrap"
+            style={{ fontSize: 'clamp(6rem, 22vw, 18rem)', letterSpacing: '-0.04em' }}
+          >
+            LOU CITY
+          </span>
+        </div>
+
+        <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-8 text-center">
+          <p className="label-tag-light justify-center mb-6">Ready to Get Started?</p>
+          <h2
+            id="cta-heading"
+            className="font-display font-black text-4xl sm:text-6xl text-white mb-5 leading-none"
+          >
+            Transform<br />
+            <span className="italic text-sienna-light">Your Space.</span>
+          </h2>
+          <p className="font-sans font-light text-white/45 text-base sm:text-lg mb-12 max-w-lg mx-auto leading-relaxed">
+            Tell us about your project and we'll get you a free, no-obligation estimate —
+            with honest pricing and a finish we stand behind.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact" className="btn-primary">
+              Get Free Estimate <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a href="tel:+15025550123" className="btn-ghost">
+              <Phone className="w-4 h-4" />
+              (502) 555-0123
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

@@ -1,84 +1,160 @@
 import { Link } from 'react-router-dom'
+import { Phone, Mail, Clock, MapPin, Facebook, Instagram } from 'lucide-react'
 
 const Footer = () => {
+  const year = new Date().getFullYear()
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:items-center">
-          <div className="flex flex-col items-center text-center">
-            <img 
-              src="/logo_text_white.png" 
-              alt="Lou City Painting Logo" 
-              className="h-32 w-auto mb-4 opacity-90"
-            />
-            <p className="text-gray-300 mb-6 max-w-md">
-              Professional residential and commercial painting services in Louisville, KY. 
-              Trusted by homeowners and businesses throughout Kentucky for quality painting solutions.
+    <footer className="bg-ink grain">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-20 pb-10">
+
+        {/* Top grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-white/[0.08]">
+
+          {/* Brand */}
+          <div className="md:col-span-4">
+            <Link to="/" className="inline-block mb-5">
+              <img src="/logo_text_white.png" alt="Lou City Painting" className="h-20 w-auto opacity-90" />
+            </Link>
+            <p className="text-white/40 text-sm font-light leading-relaxed max-w-xs mb-7">
+              Louisville's trusted painting professionals for residential and commercial
+              properties. Quality craftsmanship, guaranteed.
             </p>
+
+            {/* Social */}
+            <div className="flex gap-2 mb-6">
+              {[
+                { Icon: Facebook, label: 'Facebook' },
+                { Icon: Instagram, label: 'Instagram' },
+              ].map(({ Icon, label }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  className="w-9 h-9 border border-white/[0.12] flex items-center justify-center text-white/40 hover:bg-sienna hover:border-sienna hover:text-white transition-all duration-200"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+
+            {/* Badges */}
+            <div className="flex flex-wrap gap-2">
+              {['Locally Owned', 'Free Estimates', 'Satisfaction Guaranteed'].map(b => (
+                <span key={b} className="px-2.5 py-1 border border-white/[0.10] text-white/35 text-[0.65rem] tracking-wide uppercase font-sans">
+                  {b}
+                </span>
+              ))}
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="text-center">
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/residential" className="text-gray-300 hover:text-primary-400 transition-colors">
-                  Residential Painting
-                </Link>
-              </li>
-              <li>
-                <Link to="/commercial" className="text-gray-300 hover:text-primary-400 transition-colors">
-                  Commercial Painting
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-300 hover:text-primary-400 transition-colors">
-                  Get a Quote
-                </Link>
-              </li>
+
+          {/* Services + Company */}
+          <div className="md:col-span-4 grid grid-cols-2 gap-8">
+            <div>
+              <h3 className="label-tag-light mb-5">Services</h3>
+              <ul className="space-y-3">
+                {[
+                  { to: '/residential', label: 'Residential' },
+                  { to: '/commercial',  label: 'Commercial' },
+                  { to: '/residential', label: 'Cabinet Refinishing' },
+                  { to: '/residential', label: 'Deck Staining' },
+                  { to: '/contact',     label: 'Free Estimate' },
+                ].map(({ to, label }) => (
+                  <li key={label}>
+                    <Link
+                      to={to}
+                      className="font-sans text-sm text-white/40 hover:text-white/80 transition-colors link-underline"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-            
-            <div className="text-center">
-              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3">
-              <div className="flex items-start justify-center">
-                <svg className="w-5 h-5 text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-                <a href="mailto:info@loucitypainting.com" className="text-gray-300 hover:text-primary-400 transition-colors">
-                  info@loucitypainting.com
-                </a>
-              </div>
-              <div className="flex items-start justify-center">
-                <svg className="w-5 h-5 text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                </svg>
-                <div className="text-gray-300">
-                  <p>Mon-Fri: 8AM-6PM</p>
-                  <p>Sat: 9AM-4PM</p>
-                  <p>Sun: Closed</p>
-                </div>
-              </div>
+
+            <div>
+              <h3 className="label-tag-light mb-5">Company</h3>
+              <ul className="space-y-3">
+                {[
+                  { to: '/',        label: 'Home' },
+                  { to: '/contact', label: 'Contact Us' },
+                  { to: '/privacy', label: 'Privacy Policy' },
+                  { to: '/terms',   label: 'Terms of Service' },
+                ].map(({ to, label }) => (
+                  <li key={label}>
+                    <Link
+                      to={to}
+                      className="font-sans text-sm text-white/40 hover:text-white/80 transition-colors link-underline"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+
+          {/* Contact */}
+          <div className="md:col-span-4">
+            <h3 className="label-tag-light mb-5">Get in Touch</h3>
+            <ul className="space-y-5">
+              <li>
+                <a href="tel:+15025550123" className="flex items-start gap-3 group">
+                  <div className="w-8 h-8 bg-sienna/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-sienna/40 transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-sienna-light" />
+                  </div>
+                  <div>
+                    <p className="text-[0.65rem] text-white/30 uppercase tracking-wide font-sans mb-0.5">Phone</p>
+                    <p className="text-sm text-white/60 group-hover:text-white/90 transition-colors font-sans">(502) 555-0123</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@loucitypainting.com" className="flex items-start gap-3 group">
+                  <div className="w-8 h-8 bg-sienna/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-sienna/40 transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-sienna-light" />
+                  </div>
+                  <div>
+                    <p className="text-[0.65rem] text-white/30 uppercase tracking-wide font-sans mb-0.5">Email</p>
+                    <p className="text-sm text-white/60 group-hover:text-white/90 transition-colors font-sans break-all">info@loucitypainting.com</p>
+                  </div>
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-sienna/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Clock className="w-3.5 h-3.5 text-sienna-light" />
+                </div>
+                <div>
+                  <p className="text-[0.65rem] text-white/30 uppercase tracking-wide font-sans mb-0.5">Hours</p>
+                  <p className="text-sm text-white/60 font-sans">Mon–Fri: 8AM–6PM</p>
+                  <p className="text-sm text-white/60 font-sans">Sat: 9AM–4PM</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-sienna/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin className="w-3.5 h-3.5 text-sienna-light" />
+                </div>
+                <div>
+                  <p className="text-[0.65rem] text-white/30 uppercase tracking-wide font-sans mb-0.5">Service Area</p>
+                  <p className="text-sm text-white/60 font-sans leading-relaxed">Louisville, KY & surrounding communities</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-        
-        <div className="mt-8 pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} Lou City Painting. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
-                Terms of Service
-              </Link>
-            </div>
+
+        {/* Bottom bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="font-sans text-xs text-white/25">
+            © {year} Lou City Painting · Louisville, KY · All rights reserved.
+          </p>
+          <div className="flex gap-6">
+            <Link to="/privacy" className="font-sans text-xs text-white/25 hover:text-white/50 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="font-sans text-xs text-white/25 hover:text-white/50 transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

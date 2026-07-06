@@ -1,104 +1,116 @@
 import { Link } from 'react-router-dom'
+import { ArrowRight, Phone, ChevronDown } from 'lucide-react'
+
+const stats = [
+  { value: 'Free',    label: 'No-Obligation Quotes' },
+  { value: '100%',    label: 'Satisfaction Guarantee' },
+  { value: 'On Time', label: 'Every Project' },
+  { value: 'Local',   label: 'Louisville-Based' },
+]
 
 const Hero = () => {
   return (
-    <section className="relative text-white overflow-hidden">
-      {/* Background image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/painting_crew.webp')" }}
-      ></div>
-      
-      {/* Blur overlay like the stats box */}
-      <div className="absolute inset-0 backdrop-blur-sm bg-black/60"></div>
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 p-8 rounded-2xl">
-            <div>
-              <div className="inline-block px-4 py-2 bg-accent-400 text-secondary-900 rounded-full text-sm font-semibold mb-4">
-                Louisville's Premier Painting Experts
-              </div>
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-white">
-                Transform Your Space with
-                <span className="block text-accent-300">
-                  Expert Painting
-                </span>
+    <>
+      <style>{`
+        .hero-photo {
+          position: absolute;
+          inset: 0;
+          background-image: url('/painting_crew.webp');
+          background-size: cover;
+          background-position: center 30%;
+          background-repeat: no-repeat;
+          /* Heavy blur + darken: keeps focus on the headline and reduces the
+             photo to soft texture (also fully obscures any signage in it). */
+          filter: blur(20px) brightness(0.42) saturate(0.85);
+          transform: scale(1.15);
+        }
+        @media (min-width: 769px) {
+          .hero-photo { background-position: center; }
+        }
+        .hero-title {
+          font-size: clamp(3.75rem, 12vw, 9.5rem);
+          line-height: 0.92;
+          letter-spacing: -0.02em;
+        }
+      `}</style>
+
+      <section className="relative min-h-screen flex flex-col grain overflow-hidden">
+        {/* Blurred crew photo layer */}
+        <div className="hero-photo" />
+        {/* Overlay — left-heavy so headline pops */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1923]/85 via-[#0f1923]/70 to-[#0f1923]/45" />
+
+        {/* Main content */}
+        <div className="relative z-10 flex-1 flex items-center">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full py-20 pt-28">
+
+            {/* Location label */}
+            <p className="label-tag-light anim-fade-in mb-8">
+              Louisville, Kentucky
+            </p>
+
+            {/* Headline */}
+            <div className="anim-fade-up">
+              <h1 className="font-display font-black text-white hero-title">
+                WE
+              </h1>
+              <h1 className="font-display font-black hero-title italic text-white/30 -mt-1 sm:-mt-2">
+                PAINT
+              </h1>
+              <h1 className="font-display font-black text-white hero-title -mt-1 sm:-mt-2">
+                LOUISVILLE.
               </h1>
             </div>
-            <p className="text-lg md:text-xl text-gray-100 leading-relaxed max-w-2xl">
-              Professional residential and commercial painting services throughout Louisville, Kentucky. Quality craftsmanship, premium materials, and customer satisfaction guaranteed.
+
+            {/* Sienna rule */}
+            <div className="w-14 h-[2px] bg-sienna mt-8 mb-7 anim-scale-x" style={{ animationDelay: '0.45s' }} />
+
+            {/* Subtext */}
+            <p className="text-white/80 font-sans font-normal text-lg sm:text-xl max-w-md leading-relaxed anim-fade-up-2" style={{ animationDelay: '0.5s' }}>
+              Professional residential and commercial painting<br className="hidden sm:block" />
+              throughout the Louisville metro area.
             </p>
-          
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-accent-400 text-secondary-900 hover:bg-accent-300 transition-colors duration-300"
-              >
-                Get a Free Estimate
-                <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3 mt-10 anim-fade-up-3" style={{ animationDelay: '0.65s' }}>
+              <Link to="/contact" className="btn-primary">
+                Get Free Estimate <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                to="/residential"
-                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg border-2 border-accent-400 text-accent-400 hover:bg-accent-400 hover:text-secondary-900 transition-colors duration-300"
-              >
-                View Our Services
-                <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-          
-          <div className="lg:pl-8">
-            <div className="rounded-2xl p-8 border-2 border-white/30">
-              <h3 className="text-2xl font-bold text-center mb-8">Why Louisville Trusts Us</h3>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-accent-300 mb-2">15+</div>
-                  <div className="text-sm text-gray-200">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-accent-300 mb-2">500+</div>
-                  <div className="text-sm text-gray-200">Happy Customers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-accent-300 mb-2">100%</div>
-                  <div className="text-sm text-gray-200">Satisfaction Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-accent-300 mb-2">24hr</div>
-                  <div className="text-sm text-gray-200">Response Time</div>
-                </div>
-              </div>
-              <div className="mt-8 pt-6 border-t border-white/20">
-                <div className="flex items-center justify-center space-x-4 text-sm text-white">
-                  <span className="flex items-center">
-                    <svg className="w-4 h-4 mr-1 text-accent-300" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Licensed & Insured
-                  </span>
-                  <span className="flex items-center">
-                    <svg className="w-4 h-4 mr-1 text-accent-300" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Free Estimates
-                  </span>
-                </div>
-              </div>
+              <a href="tel:+15025550123" className="btn-ghost">
+                <Phone className="w-4 h-4" />
+                (502) 555-0123
+              </a>
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Paint brush stroke decoration */}
-      <div className="absolute bottom-0 left-0 w-full">
-        <div className="brush-divider"></div>
-      </div>
-    </section>
+
+        {/* Scroll hint */}
+        <div className="relative z-10 flex justify-center pb-5 anim-fade-in" style={{ animationDelay: '1.2s' }}>
+          <div className="flex flex-col items-center gap-1 text-white/40 anim-bounce-y">
+            <span className="font-sans text-[0.6rem] tracking-[0.2em] uppercase">Scroll</span>
+            <ChevronDown className="w-3.5 h-3.5" />
+          </div>
+        </div>
+
+        {/* Value-prop bar */}
+        <div className="relative z-10 bg-sienna">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
+              {stats.map(({ value, label }) => (
+                <div key={label} className="py-4 px-4 sm:px-6 text-center">
+                  <div className="font-display font-black text-white text-2xl sm:text-3xl leading-none">
+                    {value}
+                  </div>
+                  <div className="font-sans font-medium text-white/70 text-[0.65rem] uppercase tracking-widest mt-1">
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
 

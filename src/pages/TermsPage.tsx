@@ -89,8 +89,9 @@ const TermsPage = () => {
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Liability and Insurance</h2>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Our Coverage</h3>
               <p className="text-gray-700 mb-4">
-                Lou City Painting is fully licensed, bonded, and insured. We carry liability 
-                insurance to protect against damages that may occur during our services.
+                Lou City Painting takes every reasonable precaution to protect your property
+                during our work. For current details about our coverage, please contact us
+                directly and we'll be happy to help.
               </p>
               
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Limitations</h3>
