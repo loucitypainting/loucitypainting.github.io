@@ -12,17 +12,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-white/[0.08]">
 
           {/* Brand */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-4 text-center md:text-left">
             <Link to="/" className="inline-block mb-5">
-              <img src="/logo_text_white.png" alt="Lou City Painting" className="h-20 w-auto opacity-90" />
+              <img src="/logo_text_white.png" alt="Lou City Painting" className="h-28 md:h-24 w-auto opacity-90" />
             </Link>
-            <p className="text-white/40 text-sm font-light leading-relaxed max-w-xs mb-7">
+            <p className="text-white/40 text-sm font-light leading-relaxed max-w-xs mx-auto md:mx-0 mb-7">
               Louisville's trusted painting professionals for residential and commercial
               properties. Quality craftsmanship, guaranteed.
             </p>
 
             {/* Social */}
-            <div className="flex gap-2 mb-6">
+            <div className="flex gap-2 mb-6 justify-center md:justify-start">
               {[
                 { Icon: Facebook, label: 'Facebook' },
                 { Icon: Instagram, label: 'Instagram' },
@@ -39,7 +39,7 @@ const Footer = () => {
             </div>
 
             {/* Badges */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
               {['Locally Owned', 'Free Estimates', 'Satisfaction Guaranteed'].map(b => (
                 <span key={b} className="px-2.5 py-1 border border-white/[0.10] text-white/35 text-[0.65rem] tracking-wide uppercase font-sans">
                   {b}
